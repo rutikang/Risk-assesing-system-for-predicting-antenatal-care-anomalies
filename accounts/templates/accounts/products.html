@@ -1,0 +1,39 @@
+
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+		<br>
+
+		<div class="row lll">
+			<div class="col-md ">
+				<div class="card card-body lll">
+					<h5>Diagnosis</h5>
+				</div>
+				<div class="card card-body lll">
+					<table class="table lll">
+						<tr>
+							<th>Condition</th>
+							<th>Risk Weight</th>
+							<th>Description</th>
+						</tr>
+                        
+                        {% for i in risk %}
+                            <tr>
+
+                                <td>{{ i.name}}</td>
+                                <td>{{ i.risk_weight}}</td>
+                                <td>{{ i.description}}</td>
+                            </tr>
+
+
+                        {% endfor %}
+                        
+						
+					</table>
+				</div>
+			</div>
+			
+		</div>
+
+{% endblock content %}

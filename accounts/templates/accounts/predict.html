@@ -1,0 +1,99 @@
+{%  extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+
+<!-- 
+<div class="row">
+	<div class="col-md-6">
+		<div class="card card-body">
+
+			<form action="" method="POST">
+				{% csrf_token %}
+				{{form}}
+
+				<input type="submit" name="Submit">
+
+			</form>
+            <a class="btn btn-outline-warning  btn-sm btn-block" href="{% url 'predictionResult' %}">Submitt</a>
+
+                Result: {{ result }}
+		</div>
+        <h1>hhh</h1>
+	</div>
+</div> -->
+
+<div class="row">
+	<div class="col-md-6 l">
+		<div class="card card-body l">
+
+            <form role="form" action="predictionResult" method="POST">
+                {% csrf_token %}
+
+                <!-- <div>
+                    <label>patient</label>
+                    <input type="text" name = "patient">
+                    </div>   -->
+
+                    
+
+                <div>
+                    <label>pregnancies_____  </label>
+                    <input type="text" name = "pregnancies">
+                    </div>  
+
+                    <div>
+                        <label>Uterine_size_____ </label>
+                        <input type="text" name = "Uterine_size">
+                        </div>  
+
+                        <div>
+                            <label>blood_pressure_ </label>
+                            <input type="text" name = "blood_pressure">
+                            </div>  
+
+                            <div>
+                                <label>abortion________</label>
+                                <input type="text" name = "abortion">
+                                </div>  
+
+                                <div>
+                                    <label>drugs___________</label>
+                                    <input type="text" name = "drugs">
+                                    </div>  
+                                    
+                                <div>
+                                    <label>BMI_____________</label>
+                                    <input type="text" name = "BMI">
+                                    </div>  
+
+                                    
+                                <div>
+                                    <label>diabetes________  </label>
+                                    <input type="text" name = "diabetes">
+                                    </div> 
+
+                                    <div>
+                                        <label>age_____________</label>
+                                        <input type="text" name = "age">
+                                        </div>
+
+
+                        <div>
+                            <button type="submit" >Predict</button>
+
+                        </div>
+
+
+
+
+
+            </form>
+<h2>            Result:{{result}}
+</h2>
+
+
+        </div>
+	</div>
+</div> 
+
+{% endblock %}

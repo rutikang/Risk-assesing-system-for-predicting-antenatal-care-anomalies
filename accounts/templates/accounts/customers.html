@@ -1,0 +1,131 @@
+{% extends 'accounts/main.html'%}
+{% block content %}
+
+
+<br>
+
+<div class="row">
+
+
+	<div class="col-md-5 ">
+		<div class="card card-body l">
+			<h5>Patient: </h5>
+			<h4 id="kkk">{{patients}}</h4>
+			<!-- <h5>Contact Information</h5> -->
+			<!-- <hr> -->
+			<hr>
+			<p>Email:{{patients.email}} </p>
+			<p>Phone:{{patients.phone}} </p>
+			
+			<a class="btn btn-outline-warning  btn-sm btn-block" href="{% url 'createPrediction' %}">Predict</a>
+
+		</div>
+	</div>
+
+	<div class="col-md-7 " >
+		<div class="card card-body lll">
+			{%  include 'accounts/customergraph.html' %}
+			
+	
+		</div>
+	</div>
+
+	
+	
+	
+
+	
+	
+</div>
+
+
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body lll">
+			<a class="btn btn-outline-success  btn-sm btn-block" href="{% url 'createnewDiagnosis' %}">Add Diagnosis</a>
+			<hr>
+
+			<hr>
+
+
+			<form method="get">
+
+		    <!-- <button class="btn btn-primary" type="submit">Search</button> -->
+		  </form>
+
+		</div>
+	</div>
+	<div class="col-md ">
+		<div class="card card-body lll">
+			<h5>Risk Factors</h5>
+			<hr>
+
+			<h1 style="text-align: center;padding: 10px">{{diagnosis_count}}</h1>
+		</div>
+	</div>
+
+	<div class="col-md ">
+		<div class="card card-body lll">
+			<h5>Current </h5>
+			<hr>
+			<h1 style="text-align: center;padding: 10px">{{current}}</h1>
+		</div>
+	</div>
+	<div class="col-md ">
+		<div class="card card-body lll">
+			<h5>Past </h5>
+			<hr>
+			<h1 style="text-align: center;padding: 10px">{{past}}</h1>
+		</div>
+	</div>
+
+	
+	</div>
+</div>
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body lll">
+			<table class="table table-sm lll">
+				<tr>
+					<th>Risk factor</th>
+					<th>Risk weight</th>
+					<th>Date Diagonised</th>
+					<th>Status</th>
+					<th>Update</th>
+					<!-- <th>Remove</th> -->
+				</tr>
+				{% for i in diagnosis %}
+
+				<tr>
+					<td>{{i.riskfactor}}</td>
+					<td>{{i.riskfactor.risk_weight}}</td>
+					<td>{{i.date_diagonised}}</td>
+					<td>{{i.status}}</td>
+					<td><a class="btn btn-outline-warning" href="{% url 'createDiagnosis' i.id %}">Update</a></td>
+					<!-- <td><a class="btn btn-outline-danger" href="{% url 'deleteDiagnosis' i.id %}">Remove</a></td> -->
+
+
+
+
+				</tr>
+				{% endfor %}
+
+			</table>
+			<div>
+				
+					{% for i in diagnosis%}
+						<!-- <h1>{{i.riskfactor.risk_weight}}</h1>  -->
+
+
+					{% endfor %}
+				<!-- <h1>kkk {{ i }}</h1> -->
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

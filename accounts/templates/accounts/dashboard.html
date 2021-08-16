@@ -1,0 +1,98 @@
+{% extends 'accounts/main.html'%}
+
+{% block content %}
+
+{%  include 'accounts/status.html' %}
+
+<br>
+
+<div class="row lll">
+	<div class="col-md-9 lll">
+		<h5>PATIENTS:</h5>
+		<hr>
+		<div class="card card-body lll">
+			<a class="btn btn-outline-primary  btn-sm btn-block " href="{% url 'createPatient' %}">Create Patient</a>
+			<table class="table table-sm  lll">	
+				<tr>
+					<th></th>
+
+					<th>Patients</th>
+					<th>Telephone</th>
+          			<th>Email</th>
+					  <th>Age</th>
+					  <th>Weight</th>
+					  <th>View</th>
+
+					  <th>Update</th>
+					  <th>Delete</th>
+
+
+					  <th></th>
+
+          {% for customers in patient %}
+            <tr>
+              <td></td>
+
+             <td>{{customers.name}}</td> 
+             <td>{{customers.phone}}</td> 
+             <td>{{customers.email}}</td> 
+			 <td>{{customers.age}}</td> 
+			 <td>{{customers.weight}}</td> 
+
+			 <td><a class="btn btn-outline-success" href="{% url 'customers' customers.id %}">View</a></td>
+
+			 <td><a class="btn btn-outline-success" href="{% url 'updatePatient' customers.id%}">Update Patient</a></td>
+			 <td><a class="btn btn-outline-danger" href="{% url 'deletePatient' customers.id %}">Delete Patient</a></td>
+
+
+            </tr>     
+        
+
+          {% endfor %}
+
+				</tr>
+
+			</table>
+		</div>
+	</div>
+<div>
+	
+</div>
+	<div class="col-md-3 lll" >
+		<h5>UPDATE RISK FACTORS</h5>
+		<hr>
+		<div class="card card-body llll">
+			<a class="btn btn-primary  btn-sm btn-block  ll" href="{% url 'createriskFactor' %}">Enter Risk Factor</a>
+			<table class="table table-sm">
+				<tr>
+					<th>Risk factor</th>
+					<!-- <th>Date Created</th> -->
+					<!-- <th>Weight</th> -->
+					<th>Modify</th>
+					<th>Remove</th>
+				</tr>
+				{% for i in riskfactor%}
+				<tr>
+					<td>{{i.name}}</td>
+					<!-- <td>{{i.date_diagonised}}</td> -->
+					<!-- <td>{{i.risk_weight}}</td> -->
+					<td><a class="btn btn-outline-warning" href="{% url 'updateDiagnosis' i.id %}">Update</a></td>
+					<td><a class="btn btn-outline-danger"  href="{% url 'deleteriskfactor' i.id %}">Delete</a></td>
+
+
+
+				</tr>
+
+				{% endfor %}
+		
+			</table>
+		</div>
+	</div>
+
+</div>
+    
+   
+
+    
+
+    {% endblock %}
