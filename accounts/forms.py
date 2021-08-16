@@ -18,6 +18,7 @@ class riskFactorForm(ModelForm):
 		fields = '__all__'
 
 class DiagnosisForm(ModelForm):
+	
 	class Meta:
 		model = Diagnosis
 		fields = [  'riskfactor', 'status']

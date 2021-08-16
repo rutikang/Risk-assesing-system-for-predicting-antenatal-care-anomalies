@@ -44,7 +44,6 @@ class Prediction(models.Model):
 	diabetes = models.FloatField(null=True)
 
 
-
 class Diagnosis(models.Model):
 	STATUS = (
 			('Current', 'Current'),
